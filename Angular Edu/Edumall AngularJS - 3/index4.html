@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="vendor/angular-messages.js"></script>
+<!--    <script type="text/javascript" src="main.js"></script>-->
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('mainController', ['$scope', '$filter', '$timeout', '$http', function($scope, $filter, $timeout, $http){
+            $scope.lowercaseUsername = function() {
+                return $filter('lowercase')($scope.user);
+            }
+            $scope.len5 = 5;
+            $scope.rules = [];
+            $http.get('tenmien/api/ten').success(function(result){
+                $scope.rules = result;
+                console.log(result);
+            }).error(function(data, status){
+                console.log(data);
+                console.log(status);
+            });
+        }]);
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div ng-controller="mainController">
+            
+        </div>
+    </div>
+</body>
+
+</html>

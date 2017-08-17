@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="formCtrl">
+        <form action="#">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td></td>
+                    <td><input type="text" ng-model="user.Name"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td></td>
+                    <td><input type="text" ng-model="user.Email"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td></td>
+                    <td><input type="text" ng-model="user.Password"></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td></td>
+                    <td><input type="text" ng-model="user.City"></td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td></td>
+                    <td><input type="text" ng-model="user.Country"></td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td></td>
+                    <td><input type="text" ng-model="user.Mobile"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><button ng-click="reset()">Reset</button></td>
+                </tr>
+                
+            </table>
+        </form>
+        <p>Current Form Value = {{user}}</p>
+        <p>Master Value = {{master}}</p>
+    </div>
+</body>
+</html>

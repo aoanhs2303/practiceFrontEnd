@@ -1,0 +1,53 @@
+body {
+    font-family: 'Anton', sans-serif;
+}
+.strike {
+    text-decoration: line-through;
+}
+
+#taskHeader {
+    background-color: #1abc9c;
+    height: 50px;
+    border-radius: 0px 0px 10px 10px;
+}
+form {
+    
+}
+input.input {
+    height: 40px;
+    margin: 5px 0px 5px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.input-group-btn {
+    height: 38px;
+    margin: 6px 20px 5px 0px;
+    
+}
+.addBtn {
+    border-color: #FFF;
+}
+.addBtn i {
+    color: #1abc9c;
+}
+#taskList {
+    background: #ecf0f1;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+input[type=checkbox] {
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.delBtn {    
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+#todo-count {
+    margin-top: 10px;
+    padding: 10px 30px;
+    background: #ecf0f1;
+    border-radius: 10px;
+}

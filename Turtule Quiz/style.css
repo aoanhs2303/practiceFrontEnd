@@ -1,0 +1,65 @@
+.no-padding-right {
+    padding: 0px;
+}
+.card {
+    margin: 20px 10px;
+}
+i.fa-search {
+    height: 38px;
+    width: 38px;
+    background-color: #0275d8;
+    color: white;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 5px 0px 0px 5px; 
+}
+input[type=text] {
+    border-radius: 0px 5px 5px 0px;
+}
+form {
+    background-color: cornsilk;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button.prog {
+    margin-right: 5px;
+}
+.btn-toolbar button.btn {
+    margin-right: 5px;
+}
+.answer {
+	padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+.answer:hover {
+    cursor: pointer;
+    border-color: coral;
+}
+.image-answer {
+    margin: 5px;
+}
+.image-answer img{
+    width: 90%;
+    height: 250px;
+    border-radius: 10px;
+}
+.blue {
+    color: aqua;
+}
+.selectImg {
+    border: 1px solid aqua;
+    border-radius: 10px;
+}
+.wrongImage {
+    border: 1px solid orangered;
+    border-radius: 10px;
+}
+.correctImage {
+    border: 1px solid green;
+    border-radius: 10px;
+}
+
+
+

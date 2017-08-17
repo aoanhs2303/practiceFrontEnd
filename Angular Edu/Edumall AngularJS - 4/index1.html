@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.9/angular-route.js"></script>
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var myApp = angular.module('myApp', ['ngRoute']);
+        myApp.config(function($routeProvider){
+            $routeProvider.when('/', {
+                templateUrl: 'pages/main.html',
+                controller: 'mainController'
+            })
+            .when('/second', {
+                templateUrl: 'pages/second.html',
+                controller: 'secondController'
+            })
+            .when('/second/:num', {
+                templateUrl: 'pages/second.html',
+                controller: 'secondController'
+            });
+        });
+        myApp.controller('mainController', ['$scope', '$log', function($scope, $log){
+            $scope.person = {
+                name: 'Phuong Nhi',
+                address: 'Hue, VN',
+                replace: true
+            }
+        }]);
+        myApp.directive('searchResult', function(){
+            
+            return {
+                restrict: 'AECM',
+                templateUrl: 'Name: {{person.name}} Address: {{person.address}}',
+                replace: true
+            }
+        })
+        
+        myApp.controller('secondController', ['$scope', '$log', '$routeParams', function($scope, $log, $routeParams){
+           
+        }]);
+        
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#/">Main</a></li>
+        <li><a href="#/second">Second </a></li>
+    </ul>
+    <div class="container">
+        <div ng-view></div>
+    </div>
+</body>
+
+</html>

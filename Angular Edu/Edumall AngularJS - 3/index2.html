@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="vendor/angular-messages.js"></script>
+<!--    <script type="text/javascript" src="main.js"></script>-->
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('mainController', ['$scope', '$filter', '$timeout', function($scope, $filter, $timeout){
+            $scope.lowercaseUsername = function() {
+                return $filter('lowercase')($scope.user);
+            }
+            $scope.$watch('user', function(newValue, oldValue){
+                console.log('Changed !!');
+                console.log('New: ' + newValue);
+                console.log('Old: ' + oldValue);
+            });
+            $timeout(function() {
+                $scope.user = 'Vec';
+                console.log('Scope changed');
+            }, 3000)
+            
+//            setTimeout(function(){
+//                $scope.$apply(function(){
+//                    $scope.user = 'Vec';
+//                    console.log('scope changed');   
+//                });
+//            }, 3000)
+        }]);
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div ng-controller="mainController">
+            <div>
+                <label for="">Tai khoan twitter cua ban la gi ?</label>
+                <input type="text" ng-model="user">
+            </div>
+            <hr>
+            <h1>twwitter.com/{{lowercaseUsername()}}</h1>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angularTable">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="vendor/dirPagination.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div role="main" class="container" ng-controller="listdata">
+        <div class="" style="margin-top: 30px">
+            <div class="col-sm-8">
+                <div class="page-header">
+                    <h2 id="tables">Search Sort and Pagination in Angular JS</h2>
+                </div>
+                <form action="#" class="form-inline">
+                    <label for="#">Search</label>
+                    <input type="text" class="form-control" placeholder="Search.." ng-model="search">
+                </form>
+                <div class="bs-compoment">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th ng-click="sort('id')">#</th>
+                                <th ng-click="sort('first_name')">First Name</th>
+                                <th ng-click="sort('last_name')">Last Name</th>
+                                <th ng-click="sort('hobby')">Hobby</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr dir-paginate="user in users | filter:search | orderBy:sortKey:reverse | itemsPerPage: 5">
+                                <th scope="row">{{user.id}}</th>
+                                <td>{{user.first_name}}</td>
+                                <td>{{user.last_name}}</td>
+                                <td>{{user.hobby}}</td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                    <dir-pagination-controls
+                            max-size = "5"
+                            direction-links = "true"
+                            boundary-links = "false">
+                        </dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

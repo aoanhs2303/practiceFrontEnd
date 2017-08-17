@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="vendor/angular-messages.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div ng-controller="mainController">
+            <h1>Hello AngularJS</h1>
+            <form name="myForm">
+                <label>
+                  Enter text:
+                  <input type="text" ng-model="field" name="myField" required minlength="5" />
+                </label>
+                <div ng-messages="myForm.myField.$error" role="alert">
+                    <div ng-message="required" class="alert alert-danger">You did not enter a field</div>
+                    <div ng-message="minlength, maxlength" class="alert alert-warning">
+                        Your email must be between 5 and 100 characters long
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

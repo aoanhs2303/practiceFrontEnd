@@ -1,0 +1,10 @@
+#taskList .strike {
+    text-decoration: line-through;
+}
+.btn-danger {
+    right: 20px;
+    position: absolute;
+}
+#clearTasks {
+    float: right;
+}

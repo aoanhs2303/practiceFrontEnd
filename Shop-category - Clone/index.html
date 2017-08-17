@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="vendor/dirPagination.js"></script>
+    <script type="text/javascript" src="vendor/angular-route.js"></script>
+    <script type="text/javascript" src="vendor/angular-resource.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+    <div class="container">
+        <div class="row">
+            <div class="col-6" style="margin-top: 10px">
+                <div class="row">
+                    <div class="col-6">
+                        <h4>Điện thoại di động</h4>
+                        <small>{{(products|filter:search).length}} Sản phẩm được tìm thấy</small>
+                    </div>
+                    <div class="col-6">
+                        <div class="cart float-right">
+                            <i class="fa fa-shopping-cart">
+                                <small>3</small>
+                            </i>
+                            <b>5000000 VND</b>
+                            <a href="#/checkout" class="btn btn-secondary">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="col-6">
+                <form action="#" class="form-inline float-right formSearch">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm" ng-model="search">
+                    <button class="btn"><i class="fa fa-search"></i></button>
+                </form>
+                <form action="#" class="form-inline formSort">
+                    <label for="#">Sắp xếp theo</label>
+                    <select class="form-control" id="exampleSelect1" ng-model="selected" ng-change="sortSl()">
+                        <option value="giatang">Giá tăng dần</option>
+                        <option value="giagiam">Giá giảm dần</option>
+                        <option value="az">A-Z</option>
+                        <option value="za">Z-A</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-3 oneProduct" dir-paginate="product in products | filter: search | orderBy: sortKey: reverse | itemsPerPage: 8">
+                <div class="imgProduct">
+                    <img src="{{product.url}}" alt="" class="img-fluid">
+                </div>
+                <b class="nameProduct">
+                    {{product.name}}
+                </b>
+                <p class="price">{{product.price | number}} VNĐ</p>
+                <button class="btn btn-danger btn-block">Xem chi tiết</button>    
+            </div>
+        </div>
+        <dir-pagination-controls
+            max-size = "8"
+            direction-links = "true"
+            boundary-links = "false">
+        </dir-pagination-controls>
+    </div>
+    
+</body>
+
+</html>

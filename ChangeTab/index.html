@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="ngTab" ng-controller="TabController">
+    <div class="tabs-heading">
+        <a href="#" ng-class="{active: isActiveTab(1)}" ng-click="changeTab(1)">Tab 1</a>
+        <a href="#" ng-class="{active: isActiveTab(2)}" ng-click="changeTab(2)">Tab 2</a>
+        <a href="#" ng-class="{active: isActiveTab(3)}" ng-click="changeTab(3)">Tab 3</a>
+    </div>
+    <div class="tabs-content">
+        <div ng-show="current_tab == 1">
+            <h1>Content of tab 1</h1>
+        </div>
+        <div ng-show="current_tab == 2">
+            <h1>Content of tab 2</h1>
+        </div>
+        <div ng-show="current_tab == 3">
+            <h1>Content of tab 3</h1>
+        </div>
+    </div>
+</body>
+</html>

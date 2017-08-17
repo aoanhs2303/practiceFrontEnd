@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="vendor/angular-messages.js"></script>
+<!--    <script type="text/javascript" src="main.js"></script>-->
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('mainController', ['$scope', '$filter', '$timeout', function($scope, $filter, $timeout){
+            $scope.lowercaseUsername = function() {
+                return $filter('lowercase')($scope.user);
+            }
+            $scope.len5 = 5;
+            $scope.rules = [
+                {ruleName: 'Tai khoan phai co 5 ky tu'},
+                {ruleName: 'Tai khoan chua duoc su dung'},
+                {ruleName: 'Tai khoan co y nghia 1 chut'}
+            ];
+            console.log($scope.rules);
+        }]);
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div ng-controller="mainController">
+            <div>
+                <label for="">Tai khoan twitter cua ban la gi ?</label>
+                <input type="text" ng-model="user">
+            </div>
+            <hr>
+            <div class="alert" ng-class="{'alert-warning': user.length < len5, 'alert-danger':user.length > len5}" ng-show="user.length !== len5">
+                Vui long nhao vao 5 ky tu
+            </div>
+            <h1>twwitter.com/{{lowercaseUsername()}}</h1>
+            <h3>Rules</h3>
+            <ul>
+                <li ng-repeat="rule in rules">{{rule.ruleName}}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

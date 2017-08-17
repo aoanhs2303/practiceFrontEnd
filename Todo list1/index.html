@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Example </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="vendor/angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controller.js"></script>
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+</head>
+
+<body ng-app="todoApp" ng-controller="todoController" class="container">
+    <div class="row-fluid">
+        <div class="col-8 offset-2">
+            <h1>What needs to be done ?</h1>
+            <div id="taskHeader">
+                <form action="#" ng-submit="addTodo()">
+                    <div class="input-group input-group">
+                        <input type="text" ng-model="newTask" class="form-control input" placeholder="Enter an activity">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-secondary addBtn"><i class="fa fa-plus"></i></button>
+                        </span>
+                    </div>
+                </form>    
+            </div>
+            
+            <div id="taskList" class="list-group">
+                <label for="" ng-repeat="task in taskList" class="list-group-item" ng-class="{strike: task.done}">
+                    <input type="checkbox" ng-model="task.done">
+                    {{task.description}}
+                    <button ng-click="deleteTodo($index)" class="btn btn-danger btn-sm delBtn"><i class="fa fa-ban"></i></button>
+                </label>
+                
+            </div>
+            <div id="todo-count">
+                <h4>
+                    {{pendingCount}}
+                    <ng-pluralize count="pendingCount" when="{one: 'item left', other: 'items left'}">                
+                </h4>
+                <button id="clearTasks" ng-click="clearCompleted()" class="btn btn-default btn-sm">Clear completed {{taskList.length - pendingCount}}</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
